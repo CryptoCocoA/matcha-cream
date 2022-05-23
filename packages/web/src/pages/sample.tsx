@@ -2,8 +2,8 @@ import { ethers } from "ethers";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useContent } from "src/libs/hooks/useTodoList";
-import { useGreenTeaContent } from "src/libs/hooks/useGreenTea";
 import { MatchaCreamSDK } from '@matcha-cream/contract'
+import { useMetaMask } from "src/libs/hooks/useMetaMask";
 
 interface ContentProps {
   contract: ethers.Contract
@@ -15,7 +15,7 @@ const Content = ({contract}: ContentProps) => {
 }
 
 const ContentConnectWallet = ({contract}: ContentProps) => {
-  const { connectWalletHandler,account } = useGreenTeaContent(contract);
+  const { connectWalletHandler,account } = useMetaMask();
   return (
     <div>
         <div>Hello Contract!</div>
